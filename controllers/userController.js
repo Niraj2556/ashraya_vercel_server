@@ -11,12 +11,9 @@ const Users = new mongoose.model('Users', {
 })
 
 module.exports.likeProduct = (req, res) => {
-    const userId = req.body.userId;
+    const userId = req.body.userId
     const productId = req.body.productId;
 
-    if (!userId) {
-        return res.status(401).send({ message: 'Login required to like a product' });
-    }
     if (!mongoose.Types.ObjectId.isValid(userId) || !mongoose.Types.ObjectId.isValid(productId)) {
         return res.status(400).send({message: 'Invalid ID format'});
     }
@@ -31,12 +28,9 @@ module.exports.likeProduct = (req, res) => {
 }
 
 module.exports.dislikeProduct = (req, res) => {
-    const userId = req.body.userId;
+    const userId = req.body.userId
     const productId = req.body.productId;
 
-    if (!userId) {
-        return res.status(401).send({ message: 'Login required to remove like from a product' });
-    }
     if (!mongoose.Types.ObjectId.isValid(userId) || !mongoose.Types.ObjectId.isValid(productId)) {
         return res.status(400).send({message: 'Invalid ID format'});
     }
@@ -113,10 +107,7 @@ module.exports.login = (req, res) =>{
 
 module.exports.likedProduct = (req, res) =>{
     const userId = req.body.userId;
-
-    if (!userId) {
-        return res.status(401).send({ message: 'Login required to view liked products' });
-    }
+    
     if (!mongoose.Types.ObjectId.isValid(userId)) {
         return res.status(400).send({message: 'Invalid user ID format'});
     }
