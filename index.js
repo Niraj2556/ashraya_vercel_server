@@ -54,7 +54,32 @@ app.use('/uploads', express.static(path.resolve(__dirname, 'uploads'), {
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.json({
+    message: 'AASHRAYA API Documentation',
+    version: '1.0.0',
+    endpoints: {
+      products: {
+        'GET /search': 'Search products',
+        'POST /add-product': 'Add new product (with image upload)',
+        'POST /edit-product': 'Edit existing product (with image upload)',
+        'GET /get-products': 'Get all products',
+        'POST /delete-product': 'Delete a product',
+        'GET /get-product/:pId': 'Get product by ID',
+        'POST /my-product': 'Get user\'s products'
+      },
+      users: {
+        'POST /signup': 'User registration',
+        'POST /login': 'User login',
+        'GET /get-user/:uId': 'Get user by ID',
+        'GET /my-profile/:userId': 'Get user profile by ID'
+      },
+      interactions: {
+        'POST /like-product': 'Like a product',
+        'POST /dislike-product': 'Dislike a product',
+        'POST /liked-products': 'Get user\'s liked products'
+      }
+    }
+  });
 });
 app.get('/search', productController.search)
 app.post('/like-product', userController.likeProduct)
