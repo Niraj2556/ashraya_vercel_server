@@ -8,7 +8,7 @@ const multer = require('multer')
 const mongoose = require('mongoose');
 const productController = require('./controllers/productController')
 const userController = require('./controllers/userController')
-const { likeProducts } = require('./controllers/userController');
+const { likeProduct } = require('./controllers/userController');
 const { sanitizeInput } = require('./middleware/security');
 
 app.use(cors());

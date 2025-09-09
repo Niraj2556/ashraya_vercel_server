@@ -196,8 +196,6 @@ module.exports.myProduct = (req, res) =>{
     })
 }
 
-
-
 module.exports.deleteProduct = (req, res) =>{
     const userId = req.body.userId;
     const pid = req.body.pid;

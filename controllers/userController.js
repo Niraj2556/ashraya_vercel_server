@@ -28,7 +28,6 @@ module.exports.likeProduct = (req, res) => {
     })
 }
 
-
 module.exports.dislikeProduct = (req, res) => {
     const userId = req.body.userId
     const productId = req.body.productId;
@@ -82,8 +81,6 @@ module.exports.getUserById = (req, res) =>{
         res.send({ message: 'server err' })
     })
 }
-
-
 
 module.exports.login = (req, res) =>{
     const username = req.body.username; 
