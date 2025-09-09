@@ -10,7 +10,6 @@ const Users = new mongoose.model('Users', {
     likedProducts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Products'}]
 })
 
-
 module.exports.likeProduct = (req, res) => {
     const userId = req.body.userId;
     const productId = req.body.productId;
